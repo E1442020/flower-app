@@ -11,8 +11,8 @@ export default function FlowerBox(props) {
       <img src={props.img} alt='imagoe' />
       </div>
         
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
+        <h3 className='f-name'>{props.name}</h3>
+        <p className='f-des'>{props.description}</p>
         <div className='btn-icon'>
         <Link to='/view'><button>View</button></Link>
         <MdFavorite style={{color:'pink'}} size={30} />
