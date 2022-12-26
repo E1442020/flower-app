@@ -2,7 +2,7 @@
     background-image: url('../Images/pexels-fu-zhichao-581222.jpg');
     background-size: cover;
     width: 100%;
-    height: 400px;
+    height: 300px;
    
 }
 .protofile-container{
@@ -15,7 +15,7 @@
     width: 200px;
     margin: 0 auto;
     aspect-ratio: 1/1;
-    margin-bottom: -20px;
+    margin-bottom: -60px;
 }
 .protofile-container img{
     width: 100%;
@@ -24,7 +24,7 @@
 
     border: none;
     border-radius: 50%;
-    margin-top: -60px;
+    margin-top: -100px;
 }
 .protofile-container button{
     background-color: pink;
@@ -33,4 +33,19 @@
     border-radius: 5px;
     color: rgb(14, 14, 14);
     cursor: pointer;
+}
+.flex{
+    height:40px;
+    margin: 0 auto;
+    display:flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen  and (max-width:940px){
+    .desc{
+       padding:0px 40px
+    }
+    
 }

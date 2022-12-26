@@ -16,8 +16,8 @@ export default function Profile() {
         
         <div className='protofile-content'>
             <h3>name: Babonge flower</h3>
-            <p>description: Babong Flower is a beautiful flower in our garden</p>
-            <Link to='/'><button><BiArrowBack /> back</button></Link>
+            <p className='desc'>description: Babong Flower is a beautiful flower in our garden</p>
+            <Link to='/'><button className='flex'><BiArrowBack /> back</button></Link>
         </div>
          
     </div>
