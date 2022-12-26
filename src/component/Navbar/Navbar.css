@@ -16,7 +16,7 @@
 .nav-list ul{
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 30px;
 
 }
 .nav-list ul li a{
