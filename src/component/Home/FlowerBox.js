@@ -7,7 +7,10 @@ export default function FlowerBox(props) {
   return (
     <>
     <div className='flowerBox-container'>
-        <img src={props.img} alt='imagoe' />
+      <div className='img-container'>
+      <img src={props.img} alt='imagoe' />
+      </div>
+        
         <h3>{props.name}</h3>
         <p>{props.description}</p>
         <div className='btn-icon'>

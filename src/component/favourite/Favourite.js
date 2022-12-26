@@ -10,7 +10,7 @@ export default function Favourite() {
     <div className='favourite-box'>
     <FlowerBox img={img} name='Babong flower' description='Babong Flower is a beautiful flower in our garden'  />
     <FlowerBox img={img} name='Babong flower' description='Babong Flower is a beautiful flower in our garden'  />
-
+    
     </div>
       
 

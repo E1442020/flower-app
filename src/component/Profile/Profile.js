@@ -10,7 +10,10 @@ export default function Profile() {
     <>
     <div className='protofile-container'>
         <div className="cover"></div>
+        <div className='imgCont'>
         <img src={img} alt='' />
+        </div>
+        
         <div className='protofile-content'>
             <h3>name: Babonge flower</h3>
             <p>description: Babong Flower is a beautiful flower in our garden</p>
