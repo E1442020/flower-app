@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+ul{
+  list-style-type: none;
+}
+button:hover{
+  opacity: .5;
+}

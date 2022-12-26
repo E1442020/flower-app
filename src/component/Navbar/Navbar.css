@@ -1,0 +1,32 @@
+.nav-container{
+   
+    background-color: pink;
+    
+}
+.nav-content{
+    width:90%;
+    margin: 0 auto;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav-list ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+}
+.nav-list ul li a{
+    
+   color: black;
+    
+}
+.nav-list ul li {
+    padding: 11px;
+}
+.nav-list ul li:hover{
+    background-color: rgb(236, 240, 242);
+}
