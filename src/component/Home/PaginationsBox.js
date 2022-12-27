@@ -4,7 +4,7 @@ export default function PaginationsBox(props) {
   return (
   <>
   <div className="pagination-box">
-    <button>{props.number}</button>
+    <button onClick={()=>props.click(props.number)}>{props.number}</button>
   </div>
   </>
   )
