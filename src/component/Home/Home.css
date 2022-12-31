@@ -44,6 +44,12 @@
 }
 .f-des{
     margin-top: 8px;
+    display: block;
+    overflow: hidden;
+   max-height: 2.6em;
+   line-height: 1.3em;
+  
+
 }
 
 .flowerBox-container button{
@@ -68,10 +74,21 @@ margin-top: 20px;
 }
 .paginations-container button{
     background-color: pink;
-    border: none;
+    border: none; 
     padding: 5px;
     margin: 3px;
 }
+
+.paginations-container button.activee{
+    background-color: rgb(240, 88, 114);
+  }
+  .activeIcon{
+    color: pink;
+    cursor: pointer;
+  }
+  .ll{
+    color:red
+  }
 
 @media screen and (max-width:940px){
 
@@ -82,3 +99,4 @@ margin-top: 20px;
         
     }
 }
+

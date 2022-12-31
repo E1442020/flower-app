@@ -16,17 +16,18 @@
 .nav-list ul{
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: 15px;
 
 }
 .nav-list ul li a{
     
    color: black;
+   padding: 11px;
     
 }
-.nav-list ul li {
-    padding: 11px;
-}
-.nav-list ul li:hover{
+
+
+.active{
     background-color: rgb(236, 240, 242);
+
 }

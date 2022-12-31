@@ -1,26 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiArrowBack } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-import img from '../Images/Where to Buy the Best Faux Spring Greens and Florals.jpg';
 import './Profile.css';
 
 export default function Profile() {
+  const[profile,setProfile]=useState([]);
+  const params=useParams();
+  const [loading,setLoading]=useState(true);
+
+  useEffect(()=>{
+    setLoading(true);
+
+    fetch(`https://flowers-api.onrender.com/flower/${params.index}`)
+    .then(response => response.json())
+    .then(data =>{setProfile(data)
+      setLoading(false)})
+    console.log(profile)
+    
+  },[])
   return (
     <>
-    <div className='protofile-container'>
+    {loading? <div className="spinner">
+  <div className="bounce1"></div>
+  <div className="bounce2"></div>
+  <div className="bounce3"></div>
+</div>: <div className='protofile-container'>
         <div className="cover"></div>
         <div className='imgCont'>
-        <img src={img} alt='' />
+        <img src={profile.flower_picture} alt='' />
         </div>
         
         <div className='protofile-content'>
-            <h3>name: Babonge flower</h3>
-            <p className='desc'>description: Babong Flower is a beautiful flower in our garden</p>
+            <h3>Name: {profile.flower_name}</h3>
+            <p className='desc'>Description: {profile.flower_description}</p>
             <Link to='/'><button className='flex'><BiArrowBack /> back</button></Link>
         </div>
          
-    </div>
+    </div>}
+
+   
     </>
   )
 }
