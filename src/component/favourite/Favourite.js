@@ -18,12 +18,14 @@ export default function Favourite() {
   };
 
   const favouriteFlowers = getFavouriteFromLocalStorage();
+ 
   // console.log(favouriteFlowers);
 
   const getFavFlower = () => {
+    setLocalEmpty(true)
     
     setLoading(true);
-    setLocalEmpty(true)
+    
     let endPoint = favouriteFlowers.toString();
     console.log(endPoint);
 
