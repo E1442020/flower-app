@@ -13,8 +13,7 @@ export default function Favourite() {
     if (localStorage.getItem("flower")) {
       return JSON.parse(localStorage.getItem("flower"));
     }
-    return setLocalEmpty(true);
-    // return [];
+    return [];
   };
 
   const favouriteFlowers = getFavouriteFromLocalStorage();
@@ -22,23 +21,31 @@ export default function Favourite() {
   // console.log(favouriteFlowers);
 
   const getFavFlower = () => {
-    setLocalEmpty(true)
-    
-    setLoading(true);
-    
-    let endPoint = favouriteFlowers.toString();
-    console.log(endPoint);
+    if(favouriteFlowers.length<=0){
+      
+      setLocalEmpty(true);
 
-    fetch(`https://flowers-api.onrender.com/flowers/${endPoint}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setFavFlower(data);
-        setLoading(false);
-        setLocalEmpty(false);
-        console.log(favFlower);
-        
-      });
-  };
+    return;}
+      setLoading(true);
+    
+      let endPoint = favouriteFlowers.toString();
+      console.log(endPoint);
+  
+      fetch(`https://flowers-api.onrender.com/flowers/${endPoint}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setFavFlower(data);
+          setLoading(false);
+          setLocalEmpty(false);
+          console.log(favFlower);
+          
+        });
+    
+    }
+    
+    
+  
+  
 
   useEffect(() => {
    
