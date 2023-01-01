@@ -31,17 +31,28 @@ export default function Profile() {
       favouriteFlowers.push(item);
       localStorage.setItem("flower", JSON.stringify(favouriteFlowers));
       setIconSelected(true);
+      
     }
   };
 
   const checkIsFavorite = (item) => {
     const favouriteFlowers = getFavouriteFromLocalStorage();
+    item= parseInt(item);
+    // console.log(typeof(item))
+    // console.log(typeof(favouriteFlowers[item]))
+
+    // console.log(item);
+    // console.log(favouriteFlowers)
 
     if (favouriteFlowers.includes(item)) {
       setIconSelected(true);
+      // console.log('if')
     } else {
       setIconSelected(false);
+      // console.log('else')
+
     }
+    
   };
 
   useEffect(() => {
@@ -53,10 +64,9 @@ export default function Profile() {
         
         setLoading(false);
       });
-      console.log(params.index);
-
-   
+     
     checkIsFavorite(params.index);
+    
    
   }, []);
   return (
