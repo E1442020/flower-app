@@ -10,7 +10,9 @@ export default function Favourite() {
 
 
 
-  function getFavouriteFromLocalStorage() {
+  const getFavouriteFromLocalStorage=()=> {
+   
+  
     if (localStorage.getItem("flower")) {
       return JSON.parse(localStorage.getItem("flower"))
     }

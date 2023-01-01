@@ -47,7 +47,14 @@
     margin: 0 auto;
     
 }
-
+.notSelectedIcon{
+    color: pink;
+    cursor: pointer;
+  }
+  .selectedIcon{
+    color: rgb(240, 88, 114);
+    cursor: pointer;
+  }
 @media screen and (max-width:940px){
 
     .protofile-content{

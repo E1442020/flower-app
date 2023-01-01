@@ -82,12 +82,13 @@ margin-top: 20px;
 .paginations-container button.activee{
     background-color: rgb(240, 88, 114);
   }
-  .activeIcon{
+  .notSelectedIcon{
     color: pink;
     cursor: pointer;
   }
-  .ll{
-    color:red
+  .selectedIcon{
+    color: rgb(240, 88, 114);
+    cursor: pointer;
   }
 
 @media screen and (max-width:940px){
