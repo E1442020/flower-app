@@ -4,9 +4,11 @@ import "./Home.css";
 import PaginationsBox from "./PaginationsBox";
 
 export default function Home() {
-  const [flower, setFlower] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [flower, setFlower] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [currentPagination, setCurrentPagination] = useState();
+
+
 
   const getFlower = (n = 1) => {
     setLoading(true);
@@ -26,8 +28,23 @@ export default function Home() {
       });
   };
 
+  const setPaginationNumber =(paginationsNum)=>{
+
+    sessionStorage.setItem('paginationNum',paginationsNum)
+  }
+
+    const getPaginationNumberFromSessionlStorage=()=>{
+      if (sessionStorage.getItem("paginationNum")) {
+        return JSON.parse(sessionStorage.getItem("paginationNum"));
+      }
+      return 1
+    }
+    
+    
+
   useEffect(() => {
-    getFlower();
+    getFlower(getPaginationNumberFromSessionlStorage());
+   
   }, []);
 
   const totalItems = 13;
@@ -66,9 +83,9 @@ export default function Home() {
             {items.map((_, idx) => (
               <Fragment key={idx}>
                 {currentPagination == idx + 1 ? (
-                  <PaginationsBox number={idx + 1} click={getFlower} active />
+                  <PaginationsBox number={idx + 1} click={getFlower}  enter={setPaginationNumber} active />
                 ) : (
-                  <PaginationsBox number={idx + 1} click={getFlower} />
+                  <PaginationsBox number={idx + 1} click={getFlower} enter={setPaginationNumber}/>
                 )}
               </Fragment>
             ))}

@@ -26,6 +26,8 @@ export default function FlowerBox(props) {
       let index = favouriteFlowers.indexOf(item);
       favouriteFlowers.splice(index, 1);
       localStorage.setItem("flower", JSON.stringify(favouriteFlowers));
+      if(props.refresh){
+      props.refresh();}
 
       setIconSelected(false)
     } else {
@@ -52,8 +54,11 @@ export default function FlowerBox(props) {
   }
 
   ;
+  const refresh =()=>{
+    
+  }
   useEffect(()=>{
-    checkIsFavorite(props.index)
+    checkIsFavorite(props.index);
   },[])
 
   return (
@@ -67,8 +72,8 @@ export default function FlowerBox(props) {
         <p className='f-des'>{props.description}</p>
         <div className='btn-icon'>
           <Link to={`/view/${props.index}`}><button>View</button></Link>
-          {iconSelected? <MdFavorite  className='selectedIcon' size={30} onClick={() =>addToFavourite(props.index)  } />
-:        <MdFavorite  className='notSelectedIcon' size={30} onClick={() =>addToFavourite(props.index) } />
+          {iconSelected? <MdFavorite  className='selectedIcon' size={30} onClick={() =>{addToFavourite(props.index) ; refresh() } } />
+:        <MdFavorite  className='notSelectedIcon' size={30} onClick={() =>{addToFavourite(props.index) ; refresh() } } />
 }
 
 

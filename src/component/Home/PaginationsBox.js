@@ -7,7 +7,7 @@ export default function PaginationsBox(props) {
   return (
   <>
   <div className="pagination-box">
-    <button className={props.active && 'activee'} onClick={()=>props.click(props.number)}>{props.number}</button>
+    <button className={props.active && 'activee'} onClick={()=>{props.click(props.number);props.enter(props.number)}}>{props.number}</button>
     
   </div>
   

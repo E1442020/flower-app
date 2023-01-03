@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { MdFavorite } from "react-icons/md";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import coverImage from "../Images/pexels-fu-zhichao-581222.jpg";
 
 import "./Profile.css";
 
@@ -10,6 +11,7 @@ export default function Profile() {
   const params = useParams();
   const [loading, setLoading] = useState(true);
   const [iconSelected, setIconSelected] = useState(false);
+  const loadingCover = useRef();
 
   const getFavouriteFromLocalStorage = () => {
     if (localStorage.getItem("flower")) {
@@ -31,28 +33,22 @@ export default function Profile() {
       favouriteFlowers.push(item);
       localStorage.setItem("flower", JSON.stringify(favouriteFlowers));
       setIconSelected(true);
-      
     }
   };
 
   const checkIsFavorite = (item) => {
     const favouriteFlowers = getFavouriteFromLocalStorage();
-    item= parseInt(item);
-    // console.log(typeof(item))
-    // console.log(typeof(favouriteFlowers[item]))
-
-    // console.log(item);
-    // console.log(favouriteFlowers)
+    item = parseInt(item);
 
     if (favouriteFlowers.includes(item)) {
       setIconSelected(true);
-      // console.log('if')
     } else {
       setIconSelected(false);
-      // console.log('else')
-
     }
-    
+  };
+
+  const onloadingHandle = () => {
+    loadingCover.current.style.display = "block";
   };
 
   useEffect(() => {
@@ -61,14 +57,15 @@ export default function Profile() {
       .then((response) => response.json())
       .then((data) => {
         setProfile(data);
-        
+
         setLoading(false);
       });
-     
+
     checkIsFavorite(params.index);
-    
-   
   }, []);
+  function goBack() {
+    window.history.back();
+  }
   return (
     <>
       {loading ? (
@@ -79,7 +76,14 @@ export default function Profile() {
         </div>
       ) : (
         <div className="protofile-container">
-          <div className="cover"></div>
+          <div className="cover">
+            <img
+              src={coverImage}
+              alt=""
+              ref={loadingCover}
+              onLoad={onloadingHandle}
+            />
+          </div>
           <div className="imgCont">
             <img src={profile.flower_picture} alt="" />
           </div>
@@ -100,11 +104,10 @@ export default function Profile() {
                 onClick={() => addToFavourite(profile.index)}
               />
             )}
-            <Link to="/">
-              <button className="flex">
-                <BiArrowBack /> back
-              </button>
-            </Link>
+
+            <button className="flex" onClick={goBack}>
+              <BiArrowBack /> back
+            </button>
           </div>
         </div>
       )}

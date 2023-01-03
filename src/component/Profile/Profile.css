@@ -1,9 +1,23 @@
 .cover{
-    background-image: url('../Images/pexels-fu-zhichao-581222.jpg');
+    /* background-image: url('../Images/pexels-fu-zhichao-581222.jpg'); */
     background-size: cover;
+    background-color: pink;
     width: 100%;
     height: 300px;
+    aspect-ratio: 1/1;
    
+}
+.cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    
+}
+.cover.visible{
+        background-image: url('../Images/pexels-fu-zhichao-581222.jpg');
+
+
 }
 .protofile-container{
     width: 100%;
@@ -17,7 +31,7 @@
     aspect-ratio: 1/1;
     margin-bottom: -60px;
 }
-.protofile-container img{
+.protofile-container  .imgCont img{
     width: 100%;
     height: 100%;
     object-fit: cover;
