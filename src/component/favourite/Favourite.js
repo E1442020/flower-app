@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { favouriteAtom } from "../atom/atom";
 import FlowerBox from "../Home/FlowerBox";
 import "./Favourite.css";
 
@@ -7,19 +8,21 @@ export default function Favourite() {
   const [favFlower, setFavFlower] = useState([]);
   const [loading, setLoading] = useState(true);
   const [localEmpty, setLocalEmpty] = useState(false);
+  const flowersArr=favouriteAtom.useValue();
   
 
-  const getFavouriteFromLocalStorage = () => {
-    if (localStorage.getItem("flower")) {
-      return JSON.parse(localStorage.getItem("flower"));
-    }
-    return [];
-  };
+  // const getFavouriteFromLocalStorage = () => {
+  //   if (localStorage.getItem("flower")) {
+  //     return JSON.parse(localStorage.getItem("flower"));
+  //   }
+  //   return [];
+  // };
 
   
 
   const getFavFlower = () => {
-    const favouriteFlowers = getFavouriteFromLocalStorage();
+    // const favouriteFlowers = getFavouriteFromLocalStorage();
+    const favouriteFlowers= flowersArr
     if (favouriteFlowers.length <= 0) {
       setLocalEmpty(true);
 
